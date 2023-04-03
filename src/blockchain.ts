@@ -7,13 +7,8 @@ class Blockchain {
         this.chain = [this.genesis()];
     }
 
-    genesis(): Block {
-        return new Block('0', '0', Date.now());
-    }
-
-    latest(): Block {
-        return this.chain[this.chain.length - 1];
-    }
+    latest(): Block { return this.chain[this.chain.length - 1]; }
+    genesis(): Block { return new Block('0', '0', 0); }
 
     addBlock(data: string): void {
         this.chain.push(new Block(data, this.latest().getHash(), Date.now()));
